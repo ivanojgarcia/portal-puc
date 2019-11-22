@@ -1,0 +1,237 @@
+   type Query {
+    login: Auth
+    getAllCasosByClient(input: ParametersCasos ): [Casos]
+    getProducts(input: ParametersCasos ): [Product]
+    getMotivos(input: ParametersCasos ): [Motivo]
+    getSubMotivos(input: ParametersCasos ): [SubMotivo]
+    }    
+
+    type Mutation {
+        login(input: LoginInput): Auth
+        loginClient(input: LoginInputClient): Auth
+        addCases(input: InputCase) : Casos
+        addNote(input: NoteInput) : Note
+    }
+
+    input ParametersCasos {
+        key: String
+        token: String!
+        type: String
+        username: String!
+        id: Int
+    }
+
+    input InputCase {
+        asunto: String!,
+        idcontacto: Int!,
+        idproducto: Int!,
+        idsubtipo: Int!,
+        idtipo: Int!,
+        key: String!,
+        username: String!
+
+    }
+    input NoteInput {
+        idobjeto: Int!,
+        texto: String!,
+        tipoobjeto: String!,
+        key: String!,
+        username: String!
+    }
+
+    type Note {
+        privado: Int
+        fechahora: String
+        idusuario: Int
+        idcontacto: Int
+        texto:String
+        idobjeto: Int
+        tipoobjeto:String
+        canal:String
+        idconversacion: Int
+        casos:String
+        idusuariodesc:String
+        idcontactodesc:String
+        idusuarionombre:String
+        idusuarioapellido:String
+        id: Int
+        eid:String
+        uuid:String
+        code: Int
+        message:String
+        pagination: Int
+    }
+
+    type Product {
+        nombre: String
+        id: Int
+    }
+
+    type Motivo {
+        nombre: String
+        id: Int
+    }
+
+    type SubMotivo {
+        nombres: String
+        id: Int
+    }
+
+    type Casos {
+        checkList: String
+        descripcion: String
+        asunto: String
+        idusuarioasignado: Int
+        idestado: Int
+        porcentaje: Float
+        idusuariomodificacion: Int
+        idusuariocreacion: Int
+        idworkflow: Int
+        idprioridad: Int
+        idproducto: Int
+        idtipo: Int
+        idcontacto: Int
+        origen: String
+        idsubtipo: Int
+        idstageactual: Int
+        finalizado: Int
+        canal: String
+        idconversacion: String
+        idgrupo: String
+        idworkflowdesc: String
+        duedate: String
+        destacado: Boolean
+        refnum: String
+        fechacreacion: String
+        idestadodesc: String
+        cf: String
+        cantidadcasos: String
+        idgrupodesc: String
+        fechacreacionstr: String
+        idcontactodesc: String
+        idusuariocreaciondesc: String
+        idusuariomodificaciondesc: String
+        idusuarioasignadodesc: String
+        fechamodificacion: String
+        slavalue: Int
+        fingreso: String
+        flexible: String
+        primerpaso: Int
+        psolucionado: String
+        pcreado: String
+        ppendiente: String
+        horastranscurridas2: String
+        totalnotas2: String
+        horastranscurridas: String
+        urgente: String
+        normal: String
+        totalnotas: String
+        solucionado: String
+        creado: String
+        pendiente: String
+        totalcasos: String
+        fechamodificacionstr: String
+        timeactual: String
+        idprioridadcolor: String
+        idstageactualdesc: String
+        idtipodesc: String
+        idproductodesc: String
+        idsladesc: String
+        idsubtipodesc: String
+        idprioridaddesc: String
+        idsla: String
+        logauditoria: String
+        id: Int
+        eid: String
+        uuid: String
+    }
+    input LoginInput {
+        company: String!
+        user: String!
+        pass: String!
+     }
+   input LoginInputClient {
+        company: String!
+        email: String!
+        pass: String!
+    }
+
+    type Auth {
+        token: String
+        contacto: Contacto
+        usuario: User
+    }
+
+    type Email {
+        emails: [Int]
+    }
+    type Phono {
+        phono: String
+    }
+
+    type Contacto {
+        idcuenta: String
+        idtipo: String
+        direccion: String
+        company: String
+        pass: String
+        identificador: String
+        apellido: String
+        nombre: String
+        id: Int
+    }
+
+    type User {
+        idusuario: ID
+        idrol: Int
+        pass: String
+        email: String
+        user: String
+        identificador: String
+        apellido: String
+        nombre: String
+        timezone: String
+        language: String
+        multisession: Int
+        idgrupo: Int
+        gruposkills: [Skills]
+        idempresa: Int
+        avatar: String
+        cf: String
+        isopais: String
+        cantidadcasos: Int
+        portada: String
+        idgrupodesc: Int
+        idpermisodesc: Int
+        notificacionactiva: Int
+        idpermiso: String
+        acceso: String
+        idroldesc: String
+        idempresadesc: Int
+        id: Int
+        eid: Int
+        uuid: Int
+        permisos: [Permissions]
+    }
+
+    type Skills {
+        skill: Int
+    }
+
+    type Permissions {
+        idrol: Int
+        idnavegacion: Int
+        idnavegaciondesc: String
+        listar: Int
+        crear: Int
+        ver: Int
+        modificar: Int
+        eliminar: Int
+        home: Int
+        idroldesc: String
+        icono: Int
+        path: Int
+        id: ID
+        eid: Int
+        uuid: Int
+    }
